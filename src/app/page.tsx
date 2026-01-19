@@ -4,7 +4,7 @@ import Link from 'next/link'
 import { useState } from 'react'
 
 export default function Home() {
-  const [isScrolled, setIsScrolled] = useState(false)
+  const [isScrolled] = useState(false)
 
   return (
     <div className="w-full">
