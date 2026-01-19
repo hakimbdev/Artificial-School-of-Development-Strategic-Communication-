@@ -31,6 +31,7 @@ export const ProgressBar: React.FC<ProgressBarProps> = ({
       return () => clearInterval(interval)
     } else {
       setDisplayProgress(progress)
+      return undefined
     }
   }, [progress, animated])
 
