@@ -4,14 +4,22 @@ import { useState, useEffect } from 'react'
 import Link from 'next/link'
 import { Card, CardBody, ProgressBar, Skeleton } from '@/components'
 
+interface DashboardModule {
+  id: string
+  title: string
+  progress: number
+  duration: number
+  completed: boolean
+}
+
 export default function Dashboard() {
   const [loading, setLoading] = useState(true)
-  const [modules, setModules] = useState([])
+  const [modules, setModules] = useState<DashboardModule[]>([])
 
   useEffect(() => {
     // Simulate loading modules
     setTimeout(() => {
-      setModules([
+      const moduleData: DashboardModule[] = [
         {
           id: '1',
           title: 'Strategic Communication Fundamentals',
@@ -40,7 +48,8 @@ export default function Dashboard() {
           duration: 120,
           completed: true,
         },
-      ])
+      ]
+      setModules(moduleData)
       setLoading(false)
     }, 1500)
   }, [])
