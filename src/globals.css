@@ -1,0 +1,113 @@
+/* Global Styles */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=IBM+Plex+Serif:wght@400;500;600;700&family=Source+Sans+3:wght@400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Base Styles */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  @apply bg-asdsc-off-white text-asdsc-charcoal font-inter;
+  overscroll-behavior: none;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Typography */
+h1, h2, h3, h4, h5, h6 {
+  @apply font-plex-serif font-bold;
+}
+
+h1 {
+  @apply text-4xl md:text-5xl lg:text-6xl;
+}
+
+h2 {
+  @apply text-3xl md:text-4xl;
+}
+
+h3 {
+  @apply text-2xl md:text-3xl;
+}
+
+p {
+  @apply leading-reading md:leading-reading-lg;
+}
+
+/* Custom Components */
+@layer components {
+  .btn-primary {
+    @apply px-6 py-3 bg-asdsc-navy text-white rounded-lg font-semibold hover:bg-asdsc-charcoal transition-all duration-200 shadow-md hover:shadow-lg;
+  }
+
+  .btn-secondary {
+    @apply px-6 py-3 bg-asdsc-gold text-asdsc-navy rounded-lg font-semibold hover:bg-opacity-90 transition-all duration-200 shadow-md hover:shadow-lg;
+  }
+
+  .card-premium {
+    @apply bg-white rounded-xl p-6 shadow-md hover:shadow-xl transition-all duration-300 border border-asdsc-gray;
+  }
+
+  .fade-in {
+    animation: fadeIn 0.5s ease-in;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Smooth Scrolling */
+* {
+  scroll-behavior: smooth;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: @apply bg-asdsc-off-white;
+}
+
+::-webkit-scrollbar-thumb {
+  background: @apply bg-asdsc-gold;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: @apply bg-asdsc-navy;
+}
+
+/* Focus States */
+a:focus,
+button:focus {
+  outline: 2px solid @apply text-asdsc-gold;
+  outline-offset: 2px;
+}
+
+/* Loading Skeleton */
+.skeleton {
+  @apply bg-gradient-to-r from-asdsc-gray to-asdsc-off-white;
+  background-size: 200% 100%;
+  animation: loading 1.5s infinite;
+}
+
+@keyframes loading {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}
